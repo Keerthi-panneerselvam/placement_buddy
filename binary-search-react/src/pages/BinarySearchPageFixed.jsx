@@ -12,7 +12,7 @@ export default function BinarySearchPageFixed() {
 
   return (
     <div className="container">
-      <Header />
+      <Header title="Binary Search Algorithm" subtitle="Efficient searching technique for sorted arrays" />
       <Tabs tabs={tabs} active={activeTab} onChange={setActiveTab} />
 
       {activeTab === "Approach" && (

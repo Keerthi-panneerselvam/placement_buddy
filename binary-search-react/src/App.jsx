@@ -3,6 +3,10 @@ import BinarySearchPageFixed from "./pages/BinarySearchPageFixed";
 import LinearSearchPage from "./pages/LinearSearchPage";
 import JumpSearchPage from "./pages/JumpSearchPage";
 import InterpolationSearchPage from "./pages/InterpolationSearchPage";
+import BubbleSortPage from "./pages/BubbleSortPage";
+import MergeSortPage from "./pages/MergeSortPage";
+import QuickSortPage from "./pages/QuickSortPage";
+import HeapSortPage from "./pages/HeapSortPage";
 
 export default function App() {
   const [selected, setSelected] = useState("Binary Search");
@@ -47,15 +51,15 @@ export default function App() {
 
           <h3 style={{ marginTop: 18, color: 'var(--accent-blue)' }}>Sorting Algorithms</h3>
           {sortAlgos.map((a) => (
-            <button
-              key={a}
-              onClick={() => setSelected(a)}
-              className={"alg-btn " + (selected === a ? "active" : "")}
-              style={btnStyle}
-            >
-              {a}
-            </button>
-          ))}
+          <button
+            key={a}
+            onClick={() => setSelected(a)}
+            className={"alg-btn " + (selected === a ? "active" : "")}
+            style={btnStyle}
+          >
+            {a}
+          </button>
+        ))}
         </div>
 
         <div style={{ flex: 1, padding: 20 }}>
@@ -67,6 +71,14 @@ export default function App() {
             <JumpSearchPage />
           ) : selected === "Interpolation Search" ? (
             <InterpolationSearchPage />
+          ) : selected === "Bubble Sort" ? (
+            <BubbleSortPage />
+          ) : selected === "Merge Sort" ? (
+            <MergeSortPage />
+          ) : selected === "Quick Sort" ? (
+            <QuickSortPage />
+          ) : selected === "Heap Sort" ? (
+            <HeapSortPage />
           ) : (
             <div className="container">
               <h2 style={{ color: 'var(--accent-blue)' }}>{selected}</h2>

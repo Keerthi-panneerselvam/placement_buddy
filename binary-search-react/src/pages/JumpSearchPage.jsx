@@ -11,20 +11,45 @@ export default function JumpSearchPage() {
 
   return (
     <div className="container">
-      <Header />
+      <Header title="Jump Search Algorithm" subtitle="Search by jumping fixed steps (√n) then linear scan" />
       <Tabs tabs={tabs} active={activeTab} onChange={setActiveTab} />
 
       {activeTab === "Problem" && (
         <div className="tab-content active">
           <div className="section">
             <h2 className="section-title">📋 Problem Statement</h2>
-            <p>
-              Given a sorted array and a target, find the index of target if present using Jump Search. If not present, return -1.
-            </p>
-            <div className="example-box" style={{ marginTop: 12 }}>
-              <div className="example-title">Example:</div>
-              <div className="example-content">Input: arr = [0,1,2,3,4,5,6,7,8,9], target = 7 → Output: 7</div>
+            <p style={{ marginBottom: 12 }}>Given a sorted array of n elements and a target value, locate the target using Jump Search: jump ahead by fixed steps (usually √n) to find the block where the target may be, then perform a linear scan within that block. Return the index if found; otherwise return -1.</p>
+            <p style={{ marginBottom: 8 }}>Jump Search is useful on sorted arrays as a middle-ground between linear and binary search.</p>
+
+            <div className="section">
+              <h2 className="section-title">📝 Examples</h2>
+
+              <div className="example-box">
+                <div className="example-title">Example 1:</div>
+                <div className="example-content">
+                  <strong>Input:</strong> arr = [0,1,2,3,4,5,6,7,8,9], target = 7<br />
+                  <strong>Output:</strong> 7
+                </div>
+              </div>
+
+              <div className="example-box">
+                <div className="example-title">Example 2:</div>
+                <div className="example-content">
+                  <strong>Input:</strong> arr = [2,4,6,8,10], target = 5<br />
+                  <strong>Output:</strong> -1
+                </div>
+              </div>
             </div>
+
+            <div className="section">
+              <h2 className="section-title">⚙️ Constraints</h2>
+              <ul className="styled-list">
+                <li>1 ≤ n ≤ 10<sup>6</sup></li>
+                <li>Array must be sorted in ascending order</li>
+                <li>-10<sup>9</sup> ≤ arr[i], target ≤ 10<sup>9</sup></li>
+              </ul>
+            </div>
+
           </div>
         </div>
       )}
@@ -150,8 +175,62 @@ def jump_search(arr, target):
       {activeTab === "Complexity" && (
         <div className="tab-content active">
           <div className="section">
-            <h2 className="section-title">⏱️ Complexity</h2>
-            <p>Time: O(√n) for jumps + linear inside block; Space: O(1).</p>
+            <h2 className="section-title">⏱️ Time & Space Complexity</h2>
+
+            <h3 className="section-subtitle">Overall:</h3>
+            <div className="complexity-box">
+              <div className="complexity-item">
+                <div className="complexity-label">Time Complexity</div>
+                <div className="complexity-value">O(√n)</div>
+              </div>
+              <div className="complexity-item">
+                <div className="complexity-label">Space Complexity</div>
+                <div className="complexity-value">O(1)</div>
+              </div>
+            </div>
+
+            <div className="section">
+              <h2 className="section-title">📊 Complexity Analysis</h2>
+              <p style={{ marginBottom: 12 }}>
+                With jump size k, number of jumps ≈ n/k and linear scan within block costs up to k. Optimal k = √n balances both giving O(√n).
+              </p>
+              <ul className="styled-list">
+                <li>Jump steps: ~n/k</li>
+                <li>Linear scan inside block: ≤ k</li>
+                <li>Total work: O(n/k + k) — minimised when k = √n → O(√n)</li>
+              </ul>
+            </div>
+
+            <div className="section">
+              <h2 className="section-title">🆚 Comparison</h2>
+              <div style={{ overflowX: 'auto' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: 15 }}>
+                  <thead>
+                    <tr style={{ background: 'rgba(59, 130, 246, 0.1)', borderBottom: '2px solid #3b82f6' }}>
+                      <th style={{ padding: 12, textAlign: 'left', color: '#3b82f6' }}>Aspect</th>
+                      <th style={{ padding: 12, textAlign: 'left', color: '#3b82f6' }}>Jump Search</th>
+                      <th style={{ padding: 12, textAlign: 'left', color: '#3b82f6' }}>Binary Search</th>
+                      <th style={{ padding: 12, textAlign: 'left', color: '#3b82f6' }}>Linear Search</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+                      <td style={{ padding: 12 }}>Time Complexity</td>
+                      <td style={{ padding: 12, color: '#10b981' }}>O(√n)</td>
+                      <td style={{ padding: 12 }}>O(log n)</td>
+                      <td style={{ padding: 12 }}>O(n)</td>
+                    </tr>
+                    <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+                      <td style={{ padding: 12 }}>Best Use</td>
+                      <td style={{ padding: 12 }}>Sorted arrays where jumping helps (middle ground)</td>
+                      <td style={{ padding: 12 }}>Sorted arrays, large datasets</td>
+                      <td style={{ padding: 12 }}>Small or unsorted arrays</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
           </div>
         </div>
       )}

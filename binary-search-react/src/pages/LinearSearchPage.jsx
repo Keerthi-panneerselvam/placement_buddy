@@ -10,7 +10,7 @@ export default function LinearSearchPage() {
 
   return (
     <div className="container">
-      <Header />
+      <Header title="Linear Search Algorithm" subtitle="Simple sequential search for unsorted arrays" />
       <Tabs tabs={tabs} active={activeTab} onChange={setActiveTab} />
 
       {activeTab === "Approach" && (
@@ -41,9 +41,8 @@ export default function LinearSearchPage() {
         <div className="tab-content active">
           <div className="section">
             <h2 className="section-title">📋 Problem Statement</h2>
-            <p style={{ marginBottom: 20 }}>
-              Given an array of n elements and a target value, search each element in sequence and return its index if found; otherwise return -1.
-            </p>
+            <p style={{ marginBottom: 12 }}>Given an array of n elements and a target value, scan each element sequentially and return its index if found; otherwise return -1.</p>
+            <p style={{ marginBottom: 8 }}>Linear Search is simple, works on unsorted arrays, and is useful for small datasets or when simplicity is preferred.</p>
           </div>
 
           <div className="section">
@@ -64,6 +63,15 @@ export default function LinearSearchPage() {
                 <strong>Output:</strong> -1
               </div>
             </div>
+          </div>
+
+          <div className="section">
+            <h2 className="section-title">⚙️ Constraints</h2>
+            <ul className="styled-list">
+              <li>1 ≤ n ≤ 10<sup>6</sup></li>
+              <li>-10<sup>9</sup> ≤ arr[i], target ≤ 10<sup>9</sup></li>
+              <li>No ordering requirement on array elements</li>
+            </ul>
           </div>
         </div>
       )}
@@ -181,6 +189,55 @@ export default function LinearSearchPage() {
                 <div className="complexity-value">O(n) (call stack)</div>
               </div>
             </div>
+          </div>
+
+          <div className="section">
+            <h2 className="section-title">📊 Complexity Analysis</h2>
+
+            <h3 className="section-subtitle">Time Complexity: O(n)</h3>
+            <p style={{ marginBottom: 12 }}>
+              Linear search inspects elements one by one. In the worst case it checks all n elements; on average it checks about n/2 elements.
+            </p>
+            <ul className="styled-list">
+              <li>Worst-case: checks all n elements → O(n)</li>
+              <li>Average-case: ~n/2 checks → O(n)</li>
+              <li>Best-case: first element matches → O(1)</li>
+            </ul>
+
+            <h3 className="section-subtitle" style={{ marginTop: 20 }}>Space Complexity:</h3>
+            <p style={{ marginBottom: 8 }}><strong>Iterative:</strong> O(1)</p>
+            <ul className="styled-list">
+              <li>Only a few variables are used (index, target)</li>
+              <li>No additional data structures are required</li>
+            </ul>
+
+            <div className="section">
+              <h2 className="section-title">🆚 Comparison with Binary Search</h2>
+              <div style={{ overflowX: 'auto' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: 15 }}>
+                  <thead>
+                    <tr style={{ background: 'rgba(59, 130, 246, 0.1)', borderBottom: '2px solid #3b82f6' }}>
+                      <th style={{ padding: 12, textAlign: 'left', color: '#3b82f6' }}>Aspect</th>
+                      <th style={{ padding: 12, textAlign: 'left', color: '#3b82f6' }}>Linear Search</th>
+                      <th style={{ padding: 12, textAlign: 'left', color: '#3b82f6' }}>Binary Search</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+                      <td style={{ padding: 12 }}>Time Complexity</td>
+                      <td style={{ padding: 12 }}>O(n)</td>
+                      <td style={{ padding: 12, color: '#10b981' }}>O(log n)</td>
+                    </tr>
+                    <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+                      <td style={{ padding: 12 }}>Requirement</td>
+                      <td style={{ padding: 12 }}>No sorting required (works on unsorted arrays)</td>
+                      <td style={{ padding: 12 }}>Requires sorted array</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
           </div>
         </div>
       )}
