@@ -71,6 +71,24 @@ body {
 
 .tab.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
 
+/* Sidebar algorithm buttons */
+.alg-btn {
+  background: transparent;
+  color: var(--text-secondary);
+  transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease;
+}
+
+.alg-btn:hover {
+  background: rgba(59,130,246,0.12);
+  color: var(--text-primary);
+  transform: translateX(4px);
+}
+
+.alg-btn.active {
+  background: var(--accent-blue);
+  color: #fff;
+}
+
 .section {
   background: var(--bg-card);
   padding: 20px;
@@ -121,3 +139,51 @@ body {
 .log-box { margin-top: 12px; background: rgba(255,255,255,0.03); padding: 12px; border-radius:8px; }
 
 @media (max-width: 768px) { .header h1 { font-size: 1.4rem; } .complexity-box { grid-template-columns: 1fr; } }
+
+/* Topbar */
+.topbar {
+  background: var(--bg-card);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.topbar .brand {
+  font-weight: 800;
+  color: var(--accent-blue);
+  font-size: 1.05rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 4px 18px rgba(59,130,246,0.12);
+}
+
+.login-btn {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.login-btn:hover {
+  background: rgba(59,130,246,0.08);
+  border-color: var(--accent-blue);
+}
+
+
