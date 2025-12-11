@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import BinarySearchPageFixed from "./pages/BinarySearchPageFixed";
+import LinearSearchPage from "./pages/LinearSearchPage";
+import JumpSearchPage from "./pages/JumpSearchPage";
+import InterpolationSearchPage from "./pages/InterpolationSearchPage";
 
 export default function App() {
   const [selected, setSelected] = useState("Binary Search");
@@ -58,6 +61,12 @@ export default function App() {
         <div style={{ flex: 1, padding: 20 }}>
           {selected === "Binary Search" ? (
             <BinarySearchPageFixed />
+          ) : selected === "Linear Search" ? (
+            <LinearSearchPage />
+          ) : selected === "Jump Search" ? (
+            <JumpSearchPage />
+          ) : selected === "Interpolation Search" ? (
+            <InterpolationSearchPage />
           ) : (
             <div className="container">
               <h2 style={{ color: 'var(--accent-blue)' }}>{selected}</h2>
